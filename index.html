@@ -111,12 +111,13 @@
         }
 
         .logo {
-            width: 120px;
-            height: 120px;
+            width: 160px;
+            height: 160px;
             object-fit: contain;
             position: relative;
             z-index: 1;
             filter: drop-shadow(0 4px 20px rgba(102, 126, 234, 0.3));
+            border-radius: 32px;
         }
 
         .company-name {
@@ -194,6 +195,12 @@
             position: relative;
             z-index: 1;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .app-icon-white-bg {
+            background-color: #ffffff;
+            padding: 8px;
+            object-fit: contain;
         }
 
         .app-icon-placeholder {
@@ -333,8 +340,8 @@
             }
 
             .logo {
-                width: 100px;
-                height: 100px;
+                width: 130px;
+                height: 130px;
             }
 
             .company-name {
@@ -430,7 +437,7 @@
 
             <!-- PP Currency Converter -->
             <article class="app-card">
-                <img src="images/PPCurrency_logo.png" alt="PP Currency Converter" class="app-icon">
+                <img src="images/PPCurrency_logo.png" alt="PP Currency Converter" class="app-icon app-icon-white-bg">
                 <div class="app-info">
                     <h2 class="app-name">PP Currency Converter</h2>
                     <p class="app-description">Currency converter with PayPal fee calculation</p>
