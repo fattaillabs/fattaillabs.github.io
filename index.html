@@ -32,7 +32,6 @@
             overflow-x: hidden;
         }
 
-        /* Animated background */
         .bg-gradient {
             position: fixed;
             top: 0;
@@ -63,7 +62,6 @@
             66% { transform: translate(-1%, 1%) rotate(-1deg); }
         }
 
-        /* Noise overlay */
         .noise {
             position: fixed;
             top: 0;
@@ -78,19 +76,19 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 60px 24px 80px;
+            padding: 50px 24px 60px;
         }
 
         /* Header */
         .header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 48px;
             animation: fadeInUp 0.8s ease-out;
         }
 
         .logo-container {
             display: inline-block;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             position: relative;
         }
 
@@ -143,17 +141,17 @@
         .apps-section {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 14px;
         }
 
         .app-card {
             background: var(--card-gradient);
             border: 1px solid var(--border-subtle);
-            border-radius: 20px;
-            padding: 32px;
+            border-radius: 16px;
+            padding: 20px 24px;
             display: flex;
             align-items: center;
-            gap: 28px;
+            gap: 20px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
@@ -176,11 +174,11 @@
         }
 
         .app-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-3px);
             border-color: rgba(102, 126, 234, 0.3);
             box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.3),
-                0 0 60px rgba(102, 126, 234, 0.1);
+                0 16px 32px rgba(0, 0, 0, 0.3),
+                0 0 50px rgba(102, 126, 234, 0.1);
         }
 
         .app-card:hover::before {
@@ -188,50 +186,20 @@
         }
 
         .app-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 18px;
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
             object-fit: cover;
             flex-shrink: 0;
             position: relative;
             z-index: 1;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
         }
 
         .app-icon-white-bg {
             background-color: #ffffff;
-            padding: 8px;
+            padding: 6px;
             object-fit: contain;
-        }
-
-        .app-icon-placeholder {
-            width: 80px;
-            height: 80px;
-            border-radius: 18px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-        }
-
-        .app-icon-placeholder.renka {
-            background: linear-gradient(135deg, #ff6b6b, #feca57);
-        }
-
-        .app-icon-placeholder.foodit {
-            background: linear-gradient(135deg, #26de81, #20bf6b);
-        }
-
-        .app-icon-placeholder.agitq {
-            background: linear-gradient(135deg, #4834d4, #686de0);
-        }
-
-        .app-icon-placeholder.pp {
-            background: linear-gradient(135deg, #0070ba, #003087);
         }
 
         .app-info {
@@ -241,36 +209,36 @@
         }
 
         .app-name {
-            font-size: 1.4rem;
+            font-size: 1.15rem;
             font-weight: 600;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             letter-spacing: -0.01em;
         }
 
         .app-description {
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             color: var(--text-secondary);
-            line-height: 1.5;
-            margin-bottom: 16px;
+            line-height: 1.4;
+            margin-bottom: 12px;
         }
 
         .store-links {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
         }
 
         .store-link {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 18px;
+            gap: 6px;
+            padding: 7px 14px;
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+            border-radius: 8px;
             color: var(--text-primary);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 500;
             transition: all 0.3s ease;
         }
@@ -282,15 +250,15 @@
         }
 
         .store-link svg {
-            width: 18px;
-            height: 18px;
+            width: 15px;
+            height: 15px;
         }
 
         /* Footer */
         .footer {
-            margin-top: 80px;
+            margin-top: 50px;
             text-align: center;
-            padding-top: 40px;
+            padding-top: 32px;
             border-top: 1px solid var(--border-subtle);
             animation: fadeInUp 0.8s ease-out 0.4s backwards;
         }
@@ -333,11 +301,11 @@
         /* Responsive */
         @media (max-width: 640px) {
             .container {
-                padding: 40px 20px 60px;
+                padding: 36px 20px 48px;
             }
 
             .header {
-                margin-bottom: 50px;
+                margin-bottom: 36px;
             }
 
             .logo {
@@ -353,7 +321,7 @@
             .app-card {
                 flex-direction: column;
                 text-align: center;
-                padding: 28px 24px;
+                padding: 20px;
             }
 
             .store-links {
@@ -438,9 +406,9 @@
 
             <!-- re:vive -->
             <article class="app-card">
-                <img src="images/revive_logo.png" alt="Re:vive" class="app-icon">
+                <img src="images/revive_logo.png" alt="re:vive" class="app-icon">
                 <div class="app-info">
-                    <h2 class="app-name">Re:vive - AI Memory Chat</h2>
+                    <h2 class="app-name">re:vive - AI Memory Chat</h2>
                     <p class="app-description">Bring conversations back to life. Create AI personas from WhatsApp chat history — all on-device, completely private.</p>
                     <div class="store-links">
                         <a href="https://apps.apple.com/us/app/revive-ai-memory-chat/id6759059883" class="store-link">
