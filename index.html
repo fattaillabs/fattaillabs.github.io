@@ -212,6 +212,17 @@
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
         }
 
+        /* 제품 페이지가 있는 앱은 아이콘을 링크로 — 링크임이 보이도록 hover/focus 반응 */
+        .app-icon-link {
+            display: inline-flex; flex-shrink: 0; border-radius: 14px;
+            position: relative; z-index: 1;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .app-icon-link:hover { transform: translateY(-2px) scale(1.04); }
+        .app-icon-link:hover .app-icon { box-shadow: 0 10px 22px rgba(0, 0, 0, 0.38), 0 0 22px rgba(255, 217, 94, 0.25); }
+        .app-icon-link:focus-visible { outline: 2px solid rgba(255, 217, 94, 0.9); outline-offset: 3px; }
+        @media (prefers-reduced-motion: reduce) { .app-icon-link { transition: none; } .app-icon-link:hover { transform: none; } }
+
         .app-icon-white-bg {
             background-color: #ffffff;
             padding: 6px;
@@ -365,7 +376,9 @@
         <section class="apps-section">
             <!-- renka ai -->
             <article class="app-card">
-                <img src="images/renka_logo.png" alt="Renka" class="app-icon">
+                <a class="app-icon-link" href="RenkaAI/" aria-label="Renka website">
+                    <img src="images/renka_logo.png" alt="Renka" class="app-icon">
+                </a>
                 <div class="app-info">
                     <h2 class="app-name">Renka - 3D Face Analyzer</h2>
                     <p class="app-description">Face Score, Symmetry & Puffiness Analysis, Plastic Surgery Simulator</p>
