@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://fattaillabs.com/sitemap.xml
 Sitemap: https://fattaillabs.com/RenkaAI/sitemap.xml
