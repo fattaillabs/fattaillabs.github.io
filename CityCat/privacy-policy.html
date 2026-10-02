@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy — CityCat</title>
 <link rel="canonical" href="https://fattaillabs.com/CityCat/privacy-policy.html">
-<meta name="description" content="CityCat privacy policy — what we collect, how uploaded map videos are handled, and your choices.">
+<meta name="description" content="CityCat privacy policy — what we collect on iPhone and Android, how uploaded map videos are handled, and how to delete your data.">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Courier New', monospace; background: #111318; color: #d8d8d8; line-height: 1.7; }
@@ -23,22 +23,25 @@
 <div class="wrap">
 <a class="back" href="index.html">&lt; CityCat</a>
 <h1>Privacy Policy</h1>
-<p class="date">Effective: July 21, 2026 · FatTail Labs</p>
+<p class="date">Effective: October 2, 2026 · FatTail Labs</p>
 
-<p>CityCat ("the app") is developed by FatTail Labs. This policy explains what information the app handles and how.</p>
+<p>CityCat ("the app") is developed by FatTail Labs for iPhone and Android. This policy explains what information the app handles and how.</p>
 
 <h2>1. What we collect</h2>
 <ul>
-  <li><b>Device identifier</b> — a per-device ID (Apple's identifierForVendor) used to keep your coin balance and map uploads on our server. It is not linked to your name, email, or any account — CityCat has no user accounts.</li>
+  <li><b>Device identifier</b> — a per-device ID used to keep your coin balance, unlocked maps, scores and map uploads on our server. On iPhone it is Apple's identifierForVendor; on Android it is a random ID the app creates the first time it runs. It is not linked to your name, email, or any account — CityCat has no user accounts. The app's Settings screen shows the start of it as your <b>Player ID</b> (Android).</li>
+  <li><b>Gameplay records</b> — your best score for the world ranking, coins earned and spent (including what they were spent on, such as an item or a cat), maps unlocked, and the likes and reports you send about maps. These are stored with your device identifier.</li>
   <li><b>Uploaded map videos</b> — if you choose to upload a street video as a game map, the video (re-encoded, audio removed), a thumbnail, a title you enter, and your device's region (country code) are stored on our servers (Cloudflare R2, USA/global). Uploads are reviewed before becoming public.</li>
-  <li><b>Purchase records</b> — coin pack purchases are processed by Apple. We receive only an anonymous transaction identifier to credit coins; we never see payment details.</li>
-  <li><b>Advertising data</b> — the app shows ads via Google AdMob, which may collect the advertising identifier (IDFA, subject to your App Tracking Transparency choice), IP address, and device information to serve and measure ads. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
+  <li><b>Purchase records</b> — coin packs and the optional CityCat Pro subscription are processed by Apple (App Store) or Google (Google Play). We use RevenueCat, a purchase-management service, to confirm purchases and subscription status. RevenueCat and our server receive the product, price, date and a transaction identifier, linked to an anonymous app user ID — never your payment card or bank details. See <a href="https://www.revenuecat.com/privacy/">RevenueCat's Privacy Policy</a>.</li>
+  <li><b>Advertising data</b> — the app shows ads via Google AdMob and its mediation partners (such as Unity Ads). These services may collect the advertising identifier (IDFA on iPhone, subject to your App Tracking Transparency choice; the Android advertising ID, which you can reset or delete in Android settings), your IP address (which can be used to estimate your general location), ad interactions, and diagnostic information about the app and ad performance, to serve, measure and protect ads. Where the law requires it (for example in the EEA and UK), the app asks for your consent first. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a> and <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Unity's Privacy Policy</a>.</li>
 </ul>
+<p>All of this data travels over encrypted (HTTPS/TLS) connections.</p>
 
 <h2>2. What we do NOT collect</h2>
 <ul>
-  <li>No accounts, names, emails, or contact lists.</li>
-  <li>Camera frames in Live Mode are processed entirely on your device for vehicle detection and are never stored or transmitted.</li>
+  <li>No accounts, names, emails, phone numbers, or contact lists.</li>
+  <li>No precise (GPS) location.</li>
+  <li>Camera frames in Live Mode (iPhone) are processed entirely on your device for vehicle detection and are never stored or transmitted.</li>
   <li>Videos you play from your photo library stay on your device unless you explicitly upload them as maps.</li>
 </ul>
 
@@ -51,12 +54,21 @@
 </ul>
 
 <h2>4. Data retention</h2>
-<p>Coin ledger entries and map metadata are retained while the service operates. Rejected map videos are deleted at rejection. You may request deletion of all data tied to your device ID at any time.</p>
+<p>Coin ledger entries, scores and map metadata are retained while the service operates, unless you ask us to delete them (see below). Rejected map videos are deleted at rejection.</p>
 
-<h2>5. Children</h2>
+<h2 id="delete-data">5. Deleting your data</h2>
+<p>You can ask us to delete the data CityCat keeps about your device at any time — no account is needed.</p>
+<ul>
+  <li><b>Step 1.</b> Email <a href="mailto:bernard@fattaillabs.com?subject=CityCat%20data%20deletion">bernard@fattaillabs.com</a> with the subject "CityCat data deletion".</li>
+  <li><b>Step 2.</b> Tell us how to find your records: your Player ID (Android: bottom of the app's Settings screen — tap it to copy), or, if you bought something, the order number from your Google Play or App Store receipt. If you have neither, tell us your best score and roughly when you last played, and we will match what we can.</li>
+  <li><b>Step 3.</b> Within 30 days we delete your coin balance and ledger, unlocked maps, ranking entry, likes, reports and any maps you uploaded, ask RevenueCat to delete your purchase-status record, and reply to confirm.</li>
+</ul>
+<p><b>What is kept:</b> Apple and Google keep their own records of your purchases under their policies, and we may keep the minimum transaction records that tax and accounting laws require. Advertising data is held by Google and its ad partners under their policies — you can reset or delete your advertising ID in your device settings. Uninstalling the app removes the device identifier from your phone, but it does not delete the records on our server; use the steps above for that.</p>
+
+<h2>6. Children</h2>
 <p>CityCat is not directed at children under 13. We do not knowingly collect personal information from children.</p>
 
-<h2>6. Contact</h2>
+<h2>7. Contact</h2>
 <p>FatTail Labs · <a href="mailto:bernard@fattaillabs.com">bernard@fattaillabs.com</a></p>
 
 <p style="margin-top:24px; color:#777;">We may update this policy; changes will be posted on this page with a new effective date.</p>
