@@ -2,77 +2,148 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>CityCat — Cross the World's Streets</title>
 <link rel="canonical" href="https://fattaillabs.com/CityCat/">
-<meta name="description" content="CityCat is a pixel-art street-crossing game played on top of street videos — real footage and AI-made city scenes (marked SYNTHETIC). On-device AI detects every car — dodge the traffic, play streets uploaded by players worldwide, and film your own block as a level.">
+<meta name="description" content="CityCat is a pixel-art street-crossing game played on top of street videos from around the world. On-device AI detects every car — time your dash through the traffic. Free on iPhone and Android.">
+<meta name="theme-color" content="#111318">
+<!-- iPhone Safari 위쪽에 앱 배너(스마트 앱 배너) -->
+<meta name="apple-itunes-app" content="app-id=6792511960">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CityCat — Cross the World's Streets">
-<meta property="og:description" content="A pixel cat. Street videos from around the world. AI-detected traffic. Play the world's streets — or upload your own.">
+<meta property="og:description" content="A pixel cat. Streets from around the world. Every car tracked by AI. Free on iPhone and Android.">
 <meta property="og:url" content="https://fattaillabs.com/CityCat/">
+<meta property="og:image" content="https://fattaillabs.com/CityCat/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/webp" href="img/icon.webp">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<script>
+  // 접속한 기기의 스토어 버튼을 앞에·노랗게 — 두 버튼은 늘 함께 보인다
+  (function () {
+    var ua = navigator.userAgent;
+    var ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    document.documentElement.setAttribute('data-os', ios ? 'ios' : /Android/.test(ua) ? 'android' : 'other');
+  })();
+</script>
 <style>
-  :root { --yellow: #FFD93B; --ink: #111318; --panel: #1b1d24; --line: #2a2d36; }
+  :root { --yellow: #FFD93B; --ink: #111318; --panel: #1b1d24; --line: #2a2d36; --text: #e8e8e8; --muted: #a3a6ae; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { overflow-x: clip; }
-  body { font-family: 'Courier New', monospace; background: var(--ink); color: #e8e8e8; line-height: 1.65; }
-  .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
-  header { padding: 72px 0 40px; text-align: center;
-    background: radial-gradient(600px 300px at 50% 0%, rgba(255,217,59,0.12), transparent 70%); }
-  h1 { font-size: clamp(40px, 8vw, 64px); letter-spacing: 2px; color: var(--yellow);
-       text-shadow: 4px 4px 0 #00000088; }
-  .tagline { font-size: 15px; color: #bbb; margin-top: 10px; letter-spacing: 1px; }
-  .badges { margin-top: 28px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-  .badge { display: inline-block; padding: 13px 22px; border: 2px solid var(--yellow); border-radius: 8px;
-           color: var(--yellow); text-decoration: none; font-weight: bold; font-size: 14px; letter-spacing: 1px; }
-  .badge.solid { background: var(--yellow); color: #111; }
-  .badge.soon { opacity: 0.5; pointer-events: none; }
-  section { padding: 44px 0; border-top: 1px solid var(--line); }
-  h2 { color: var(--yellow); font-size: 20px; letter-spacing: 2px; margin-bottom: 18px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
-  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 18px; }
-  .card b { color: #fff; display: block; margin-bottom: 6px; font-size: 15px; }
-  .card p { font-size: 13.5px; color: #aaa; }
-  footer { padding: 40px 0 60px; border-top: 1px solid var(--line); text-align: center;
-           font-size: 13px; color: #888; }
-  footer a { color: #aaa; text-decoration: none; margin: 0 10px; }
+  html { overflow-x: clip; -webkit-text-size-adjust: 100%; }
+  body { background: var(--ink); color: var(--text); line-height: 1.6;
+         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, "Courier New", monospace; }
+  .wrap { max-width: 560px; margin: 0 auto; padding: 0 16px; }
+
+  header { padding: calc(36px + env(safe-area-inset-top)) 0 28px; text-align: center;
+           background: radial-gradient(520px 260px at 50% 0%, rgba(255,217,59,0.13), transparent 70%); }
+  .icon { width: 76px; height: 76px; border-radius: 18px; display: block; margin: 0 auto 18px;
+          box-shadow: 0 6px 20px rgba(0,0,0,0.45); }
+  .wordmark { display: block; width: min(100%, 420px); height: auto; margin: 0 auto; image-rendering: pixelated; }
+  h1.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .tagline { margin-top: 12px; font-size: 13px; letter-spacing: 2px; color: var(--yellow); font-weight: 700; }
+  .pitch { margin: 16px auto 0; font-size: 16px; color: #d4d6db; max-width: 420px; }
+
+  .stores { margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+  .store { display: flex; align-items: center; justify-content: center; flex-direction: column;
+           min-height: 58px; padding: 8px 16px; border-radius: 12px; text-decoration: none;
+           border: 2px solid var(--yellow); color: var(--yellow); background: transparent; }
+  .store small { font-size: 11px; letter-spacing: 1px; opacity: 0.85; }
+  .store span { font-size: 19px; font-weight: 700; letter-spacing: 0.3px; line-height: 1.2; }
+  .store:active { transform: translateY(1px); }
+  /* 기기에 맞는 쪽을 노란 버튼으로 앞에. 데스크톱은 둘 다 노랗게 */
+  html[data-os="ios"] .store.ios, html[data-os="android"] .store.play, html[data-os="other"] .store { background: var(--yellow); color: #111; }
+  html[data-os="android"] .store.play { order: -1; }
+  .free { margin-top: 10px; font-size: 12px; color: var(--muted); }
+  @media (min-width: 520px) { .stores { flex-direction: row; } .store { flex: 1; } }
+
+  .shots { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px 16px 18px;
+           -webkit-overflow-scrolling: touch; scrollbar-width: none; max-width: 980px; margin: 0 auto; }
+  .shots::-webkit-scrollbar { display: none; }
+  .shots img { flex: 0 0 auto; width: min(62vw, 250px); aspect-ratio: 1 / 2; height: auto; border-radius: 14px;
+               scroll-snap-align: center; background: var(--panel); border: 1px solid var(--line); }
+  .hint { text-align: center; font-size: 12px; color: var(--muted); }
+  /* 넓은 화면은 다섯 장을 한 줄에 — 마우스로 가로 넘기기는 불편하다 */
+  @media (min-width: 900px) {
+    .shots { justify-content: center; overflow: visible; }
+    .shots img { width: 176px; }
+    .hint { display: none; }
+  }
+
+  section { padding: 34px 0; }
+  h2 { font-size: 14px; letter-spacing: 2px; color: var(--yellow); margin-bottom: 14px; }
+  .features { display: grid; gap: 10px; }
+  .feature { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .feature b { display: block; color: #fff; font-size: 15.5px; margin-bottom: 4px; }
+  .feature p { font-size: 14px; color: var(--muted); }
+  .tag { display: inline-block; font-size: 10.5px; letter-spacing: 1px; padding: 1px 6px; border: 1px solid var(--line);
+         border-radius: 4px; color: var(--muted); margin-left: 6px; vertical-align: 2px; }
+
+  .cta { text-align: center; padding-top: 6px; }
+  footer { padding: 30px 0 calc(40px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line);
+           text-align: center; font-size: 13px; color: #8a8d95; }
+  footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 16px; }
+  footer a { color: #b3b6bd; text-decoration: none; padding: 6px 0; }
   footer a:hover { color: var(--yellow); }
+  footer p { margin-top: 12px; }
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
-    <h1>CityCat</h1>
-    <p class="tagline">CROSS THE WORLD'S STREETS</p>
-    <div class="badges">
-      <a class="badge solid" href="https://apps.apple.com/us/app/citycat-pixel-cat-crossing/id6792511960">App Store</a>
-      <span class="badge soon">Google Play — soon</span>
+    <img class="icon" src="img/icon.webp" width="76" height="76" alt="CityCat app icon">
+    <img class="wordmark" src="img/wordmark.png" width="1120" height="208" alt="CityCat">
+    <h1 class="sr">CityCat</h1>
+    <p class="tagline mono">CROSS THE WORLD'S STREETS</p>
+    <p class="pitch">Guide a pixel cat across busy streets from around the world. Every car is spotted by AI — time your dash through the traffic.</p>
+    <div class="stores">
+      <a class="store ios" href="https://apps.apple.com/app/id6792511960"><small>DOWNLOAD ON THE</small><span>App Store</span></a>
+      <a class="store play" href="https://play.google.com/store/apps/details?id=com.fattail.citycat"><small>GET IT ON</small><span>Google Play</span></a>
     </div>
+    <p class="free">Free · In-app purchases · iPhone &amp; Android</p>
   </div>
 </header>
 
+<div class="shots" aria-label="Screenshots">
+  <img src="img/shot_01_hero.webp" width="640" height="1280" alt="A pixel cat crossing a busy street — Cross the world's streets">
+  <img src="img/shot_02_world1.webp" width="640" height="1280" loading="lazy" alt="Streets from around the world: Hong Kong and Havana">
+  <img src="img/shot_03_world2.webp" width="640" height="1280" loading="lazy" alt="Every city has its own rhythm: Bangkok and Rome">
+  <img src="img/shot_04_track.webp" width="640" height="1280" loading="lazy" alt="Every car tracked live by on-device AI on real footage from Seoul">
+  <img src="img/shot_05_cast.webp" width="640" height="1280" loading="lazy" alt="A cast of six cats and three power-ups">
+</div>
+<p class="hint mono">← swipe →</p>
+
 <section>
   <div class="wrap">
-    <h2>■ WHAT IS THIS?</h2>
-    <p style="color:#ccc; font-size:15px;">
-      A tiny pixel cat crossing <b style="color:#fff">streets from around the world</b> — real footage and AI-made city scenes
-      (AI-made maps carry a SYNTHETIC tag). No drawn levels: on-device AI watches every vehicle in the video, and you time your dash through the traffic.
-    </p>
-    <div class="grid" style="margin-top:22px;">
-      <div class="card"><b>🚗 Traffic, AI-detected</b><p>Every car in the video is a hitbox, spotted in real time on your device.</p></div>
-      <div class="card"><b>🌏 The world is your map</b><p>Play streets uploaded by players everywhere — filter by country, collect the world.</p></div>
-      <div class="card"><b>📱 Film your own level</b><p>Record a street from above for 30 seconds — from a safe spot, never in the road. Your block becomes a level anyone can play.</p></div>
-      <div class="card"><b>🐱 Six cats to unlock</b><p>Earn coins by clearing streets and collect every crosser.</p></div>
+    <h2 class="mono">■ HOW IT PLAYS</h2>
+    <div class="features">
+      <div class="feature"><b>Every car, tracked</b><p>On-device AI finds every vehicle in the video. Each one is a hitbox — wait for the gap, then dash.</p></div>
+      <div class="feature"><b>Streets of the world</b><p>Real footage and AI-made city scenes, from Seoul to Havana. AI-made maps carry a SYNTHETIC tag. New streets land in the Map Market.</p></div>
+      <div class="feature"><b>Live Mode</b><p>Point your camera at the street in front of you and play it. Always from a safe spot off the road.</p></div>
+      <div class="feature"><b>A cast of cats</b><p>Six cats and three power-ups — slow-mo, shield and ghost. Clear streets to earn coins.</p></div>
+      <div class="feature"><b>Share your street <span class="tag mono">iPHONE</span></b><p>Film your block from above and upload it as a map anyone can play.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 class="mono">■ GET CITYCAT</h2>
+    <div class="stores">
+      <a class="store ios" href="https://apps.apple.com/app/id6792511960"><small>DOWNLOAD ON THE</small><span>App Store</span></a>
+      <a class="store play" href="https://play.google.com/store/apps/details?id=com.fattail.citycat"><small>GET IT ON</small><span>Google Play</span></a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <a href="privacy-policy.html">Privacy Policy</a> ·
-    <a href="terms-of-service.html">Terms of Service</a> ·
-    <a href="support.html">Support</a> ·
-    <a href="filming-tips.html">Filming Tips</a>
-    <p style="margin-top:14px;">© 2026 FatTail Labs · bernard@fattaillabs.com</p>
+    <nav>
+      <a href="support.html">Support</a>
+      <a href="filming-tips.html">Filming Tips</a>
+      <a href="privacy-policy.html">Privacy</a>
+      <a href="terms-of-service.html">Terms</a>
+    </nav>
+    <p>© 2026 FatTail Labs · <a href="mailto:bernard@fattaillabs.com">bernard@fattaillabs.com</a></p>
   </div>
 </footer>
 </body>
