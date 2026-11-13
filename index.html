@@ -66,6 +66,14 @@
             { "@type": "ListItem", "position": 6, "item": { "@type": "MobileApplication", "name": "Re:vive", "applicationCategory": "EntertainmentApplication", "operatingSystem": "iOS", "url": "https://fattaillabs.com/Revive/", "description": "AI memory chat that reads an exported WhatsApp, KakaoTalk or LINE chat and continues the conversation in the other person's style. Imported chats are stored only on the device." } },
             { "@type": "ListItem", "position": 7, "item": { "@type": "MobileApplication", "name": "PP Currency Converter", "applicationCategory": "FinanceApplication", "operatingSystem": "iOS", "url": "https://apps.apple.com/us/app/pp-currency-converter/id6757106706", "description": "Currency converter that shows the exchange rate, the conversion fee and the exact amount you will receive, for 40 currencies." } }
           ]
+        },
+        {
+          "@type": "ItemList",
+          "name": "Open source by FatTail Labs",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "item": { "@type": "SoftwareSourceCode", "name": "smartglasses-detect", "codeRepository": "https://github.com/fattaillabs/smartglasses-detect", "programmingLanguage": "Python", "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/", "author": { "@id": "https://fattaillabs.com/#org" }, "description": "Detects camera smart glasses in a frontal face photo and estimates the product (Ray-Ban Meta, Oakley Meta, Rokid, Xiaomi, Samsung Intelligent Eyewear and more). Model weights, code and a labeled dataset." } },
+            { "@type": "ListItem", "position": 2, "item": { "@type": "SoftwareSourceCode", "name": "Mogo Print", "alternateName": "모고 프린트", "codeRepository": "https://github.com/fattaillabs/mogo-print", "programmingLanguage": ["Swift", "C#"], "license": "https://opensource.org/licenses/MIT", "author": { "@id": "https://fattaillabs.com/#org" }, "description": "macOS and Windows app that prints Korean mock exam PDFs on A4 with the empty margins trimmed." } }
+          ]
         }
       ]
     }
@@ -346,6 +354,39 @@
             height: 15px;
         }
 
+        /* 섹션 제목: 앱 목록과 오픈소스 목록을 나눈다. 제목은 작게, 오른쪽에 GitHub 링크 */
+        .section-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 16px;
+            margin: 0 4px 14px;
+        }
+        .section-head + .apps-section { margin-bottom: 0; }
+        .apps-section + .section-head { margin-top: 48px; }
+        .section-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+        .section-link {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .section-link:hover { color: var(--text-primary); }
+        .repo-meta {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.42);
+            margin: -6px 0 12px;
+        }
+
         /* Footer */
         .footer {
             margin-top: 50px;
@@ -474,6 +515,10 @@
             .footer-links {
                 gap: 20px;
             }
+
+            .section-head { margin: 0 2px 10px; }
+            .apps-section + .section-head { margin-top: 32px; }
+            .repo-meta { margin: -4px 0 8px; font-size: 0.68rem; }
         }
     </style>
 </head>
@@ -489,7 +534,10 @@
             <h1 class="tagline"><span class="sr-only">FatTail Labs — </span>Crafting intelligent apps for everyday life</h1>
         </header>
 
-        <section class="apps-section">
+        <div class="section-head">
+            <h2 class="section-title" id="apps">Apps</h2>
+        </div>
+        <section class="apps-section" aria-labelledby="apps">
             <!-- Latent (macOS) -->
             <article class="app-card">
                 <a class="app-icon-link" href="https://latentmac.com" aria-label="Latent website">
@@ -654,6 +702,60 @@
                                 <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
                             </svg>
                             App Store
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <div class="section-head">
+            <h2 class="section-title" id="open-source">Open source</h2>
+            <a class="section-link" href="https://github.com/fattaillabs">github.com/fattaillabs</a>
+        </div>
+        <section class="apps-section" aria-labelledby="open-source">
+            <!-- smartglasses-detect -->
+            <article class="app-card">
+                <a class="app-icon-link" href="https://github.com/fattaillabs/smartglasses-detect" aria-label="smartglasses-detect on GitHub">
+                    <img src="images/smartglasses_detect_logo.svg" alt="smartglasses-detect" class="app-icon">
+                </a>
+                <div class="app-info">
+                    <h3 class="app-name">smartglasses-detect</h3>
+                    <p class="app-description">Spots camera smart glasses in a face photo and names the model: Ray-Ban Meta, Oakley Meta, Rokid, Xiaomi, Samsung and more. Model, code and a labeled dataset.</p>
+                    <p class="repo-meta">Python · PyTorch · CC BY-NC-SA 4.0</p>
+                    <div class="store-links">
+                        <a href="https://github.com/fattaillabs/smartglasses-detect" class="store-link">
+                            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                            GitHub
+                        </a>
+                        <a href="https://github.com/fattaillabs/smartglasses-detect#demo" class="store-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l10.98-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14z"/></svg>
+                            Demo video
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Mogo Print -->
+            <article class="app-card">
+                <a class="app-icon-link" href="https://github.com/fattaillabs/mogo-print" aria-label="Mogo Print on GitHub">
+                    <img src="images/mogoprint_logo.png" alt="Mogo Print" class="app-icon">
+                </a>
+                <div class="app-info">
+                    <h3 class="app-name">Mogo Print - Mock Exam Printer</h3>
+                    <p class="app-description">Prints Korean mock exam PDFs on a home A4 printer. It trims the empty margins first, so the text stays at about 80% of the original size instead of 71%.</p>
+                    <p class="repo-meta">Swift · C# · macOS &amp; Windows · MIT</p>
+                    <div class="store-links">
+                        <a href="https://github.com/fattaillabs/mogo-print/releases/latest/download/MogoPrint.dmg" class="store-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                            Download for Mac
+                        </a>
+                        <a href="https://github.com/fattaillabs/mogo-print/releases/latest/download/MogoPrint-windows-x64.zip" class="store-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.1 10.4 4v7.2H3V5.1zm0 13.8 7.4 1.1v-7.1H3v6zm8.3 1.2L21 21.5v-8.6h-9.7v7.2zm0-16.2v7.3H21V2.5l-9.7 1.4z"/></svg>
+                            Windows
+                        </a>
+                        <a href="https://github.com/fattaillabs/mogo-print" class="store-link">
+                            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                            GitHub
                         </a>
                     </div>
                 </div>
